@@ -1,29 +1,48 @@
 doctype html
 html
   head
-    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
-    link(href='http://fonts.googleapis.com/css?family=Raleway:600,800,400,200' rel='stylesheet' type='text/css')
-    link(rel='stylesheet' href='/assets/css/styles.css')
+    block css
+      link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
+      link(href='http://fonts.googleapis.com/css?family=Raleway:600,800,400,200' rel='stylesheet' type='text/css')
+      link(rel='stylesheet' href='/assets/css/layout.css')
     block title
       title Spore: Environment Variables in the 21st Century
   body
-    nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+    #background
+    nav.navbar.navbar-default.navbar-fixed-top#nav(role='navigation')
       .container
         .navbar-header
+          button.navbar-toggle.collapsed(type='button', oz-evt='click:collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
           a.navbar-brand(class=index ? 'active' : '', href='/', title='Spore')
             .navbar-logo
-        ul.nav.navbar-nav.navbar-left
-          li(class=howItWorks ? 'active' : '')
-            a(href='/how-it-works') How it works
-          li(class=collaboration ? 'active' : '')
-            a(href='/collaboration') Collaboration
-          li(class=security ? 'active' : '')
-            a(href='/security') Security
-          li(class=installation ? 'active' : '')
-            a(href='/installation') Getting Started
+        .navbar-collapse(oz-attr='class:collapse')
+          ul.nav.navbar-nav.navbar-left
+            li(class=howItWorks ? 'active' : '')
+              a(href='/how-it-works') How it works
+            li(class=collaboration ? 'active' : '')
+              a(href='/collaboration') Collaboration
+            li(class=security ? 'active' : '')
+              a(href='/security') Security
+            li(class=installation ? 'active' : '')
+              a(href='/installation') Getting Started
     .container#main
       block content
+
+    footer
+      .container
+        .row
+          .col-md-4
+            h4 About
+            ul.nav
+              li
+                a(href='/') Team
+          .col-md-4
+          .col-md-4
     block scripts
       script(src='/assets/javascripts/vendor/oz-bundle.min.js')
       script(src='/assets/javascripts/vendor/ready.min.js')
-      script(src='/assets/javascripts/vendor/uuid.js')
+      script(src='/assets/javascripts/nav.js')

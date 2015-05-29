@@ -1,0 +1,86 @@
+/*
+  http://coolors.co/app/313131-638f57-baf2bb-f9f8f8-cdd3ce
+
+  background: #313131;
+  accent: #638f57;
+  accent-compliment: #f9f8f8;
+  text: cdd3ce;
+  text-highlight: #baf2bb;
+ */
+
+body {
+  padding-top: 70px;
+  background: #313131 url(/assets/images/escheresque_ste-trans.png);
+  color: #cdd3ce;
+  font-family: 'Raleway', sans-serif;
+}
+
+.navbar {
+  background: #638f57;
+  border: none;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.navbar-logo {
+  height: 31px;
+  width: 92px;
+  margin-top: -7px;
+  background-image: url(/assets/images/lower-spore-logo-light-gray.png);
+  background-size: 92px 31px;
+  display: inline-block;
+}
+
+.navbar .navbar-nav > .active a,
+.navbar .navbar-nav > .active a:hover,
+.navbar .navbar-nav > li > a:hover {
+  background-color: #f9f8f8;
+  color: #638f57;
+}
+
+.navbar .navbar-nav > li > a {
+  color: #f9f8f8;
+}
+
+.navbar .navbar-toggle {
+  border-color: #f9f8f8;
+}
+
+.navbar .navbar-toggle .icon-bar {
+  background-color: #f9f8f8;
+}
+
+.navbar .navbar-toggle:hover {
+  background-color: #f9f8f8;
+}
+
+.navbar .navbar-toggle:hover .icon-bar {
+  background-color: #638f57;
+}
+
+#main {
+  min-height: 800px;
+}
+
+footer {
+  padding: 50px 0;
+  margin-top: 50px;
+  background: #638f57;
+  color: #f9f8f8;
+}
+
+footer .nav > li > a {
+  color: #baf2bb;
+}
+
+footer .nav > li > a:hover {
+  background: none;
+  color: #f9f8f8;
+}
+
+.pre-wrap {
+  white-space: pre-wrap;
+}
+
+.highlight {
+  color: #baf2bb;
+}

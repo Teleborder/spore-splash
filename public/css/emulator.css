@@ -1,86 +1,8 @@
-/*
-  http://coolors.co/app/313131-638f57-baf2bb-f9f8f8-cdd3ce
-
-  background: #313131;
-  accent: #638f57;
-  accent-compliment: #f9f8f8;
-  text: cdd3ce;
-  text-highlight: #baf2bb;
- */
-
-body {
-  padding-top: 70px;
-  background: #313131;
-  color: #cdd3ce;
-  font-family: 'Raleway', sans-serif;
-}
-
-body::after {
-  content:'';
-  position: absolute;
-  top:0;
-  right:0;
-  bottom:0;
-  left:0;
-  opacity: 0.55;
-  background: url(/assets/images/escheresque_ste.png);
-  z-index: -1;
-}
-
-.navbar {
-  background: #638f57;
-  border: none;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.4);
-}
-
-.navbar-logo {
-  height: 31px;
-  width: 92px;
-  margin-top: -7px;
-  background-image: url(/assets/images/lower-spore-logo-light-gray.png);
-  background-size: 92px 31px;
-  display: inline-block;
-}
-
-.navbar .navbar-brand:hover,
-.navbar .navbar-brand.active {
-  background-color: #f9f8f8;
-}
-
-.navbar-brand:hover .navbar-logo,
-.navbar-brand.active .navbar-logo {
-  background-image: url(/assets/images/lower-spore-logo-green.png);
-}
-
-.navbar .navbar-nav > .active a,
-.navbar .navbar-nav > .active a:hover,
-.navbar .navbar-nav > li > a:hover {
-  background-color: #f9f8f8;
-  color: #638f57;
-}
-
-.navbar .navbar-nav > li > a {
-  color: #f9f8f8;
-}
-
-.pre-wrap {
-  white-space: pre-wrap;
-}
-
-.highlight {
-  color: #baf2bb;
-}
-
-.header {
-  margin-top: 40px;
-  margin-bottom: 30px;
-}
-
 .window {
-  width: 80%;
+  width: 100%;
   background: #eee;
   display: block;
-  margin: 20px auto;
+  margin: 0 auto 40px;
   top: 20%;
   max-height: 80%;
   min-height: 100px;
@@ -157,7 +79,7 @@ body::after {
 }
 
 .terminal .main-prompt {
-  color: #2aa198;
+  color: #268bd2;
 }
 
 .terminal .command {
@@ -202,20 +124,28 @@ body::after {
 
 .editor {
   background-color: #272822;
-  /* JSON */
+  color: #F8F8F2;
+  counter-reset: line;
+}
+
+.editor.json {
   color: #CFCFC2;
 }
 
-.terminal .line.indent2:before, .editor .line.indent2:before {
-  content: "\00a0\00a0";
+.terminal .line, .editor .line {
+  white-space: pre-wrap;
 }
 
-.terminal .line.indent4:before, .editor .line.indent4:before {
-  content: "\00a0\00a0\00a0\00a0";
-}
-
-.terminal .line.indent6:before, .editor .line.indent6:before {
-  content: "\00a0\00a0\00a0\00a0\00a0\00a0";
+.editor .line:before {
+  counter-increment: line;
+  content: counter(line);
+  width: 1.5em;
+  text-align: right;
+  display: inline-block;
+  margin-right: 1.25em;
+  margin-left: -1em;
+  opacity: 0.4;
+  color: #F8F8F2;
 }
 
 @-moz-keyframes blinker {  

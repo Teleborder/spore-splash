@@ -1,6 +1,6 @@
 domready(function () {
   var main = document.getElementById('main'),
-      verbs = ["manage", "deploy", "review", "collaborate on", "edit"],
+      verbs = ["manage", "deploy", "review", "collaborate on", "edit", "test"],
       pageTemplate = Oz(main),
       page = {
         appId: uuid(),

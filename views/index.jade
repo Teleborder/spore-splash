@@ -1,5 +1,9 @@
 extends ./layout.jade
 
+block append css
+  link(rel='stylesheet' href='/assets/css/emulator.css')
+  link(rel='stylesheet' href='/assets/css/index.css')
+
 block content
   h1.header.text-center
     span.pre-wrap.highlight(oz-text='Verb')
@@ -8,7 +12,7 @@ block content
     |  code
 
   .row
-    .col-md-12
+    .col-lg-6
       .window.mac
         .title-bar
           .exit
@@ -24,24 +28,31 @@ block content
                 |  spore
               span.arguments
                 |  set -p VERB
-            .line.prompt development:
-            .line.indent2.prompt DOMAIN:
+            .line.prompt
+              | === spore-splash
+            .line.prompt
+              | development:
+            .line.prompt
+              |   DOMAIN:
               span.data
                 |  spore.dev
-            .line.indent2.prompt VERB:
+            .line.prompt
+              |   VERB:
               span.data
                 |  test
-            .line.prompt production:
-            .line.indent2.prompt DOMAIN:
+            .line.prompt
+              | production:
+            .line.prompt
+              |   DOMAIN:
               span.data
                 |  spore.sh
-            .line.indent2.prompt VERB:
+            .line.prompt
+              |   VERB:
               span.data
                 |  
                 span.pre-wrap(oz-text='verb')
                 span.cursor
-  .row
-    .col-md-12
+    .col-lg-6
       .window.mac
         .title-bar
           .exit
@@ -50,46 +61,47 @@ block content
           .title.document
             | .spore &mdash; spore-splash
         .page
-          .editor
+          .editor.json
             .line
               | {
-            .line.indent2
+            .line
               |   "name": "spore-splash",
-            .line.indent2
+            .line
               |   "id": "
               span(oz-text='appId')
               | ",
-            .line.indent2
+            .line
               |   "envs": {
-            .line.indent4
+            .line
               |     "development": {
-            .line.indent6
+            .line
               |       "DOMAIN": "
               span(oz-text='developmentDomainId')
               | ",
-            .line.indent6
+            .line
               |       "VERB": "
               span(oz-text='developmentVerbId')
               | "
-            .line.indent4
+            .line
               |     },
-            .line.indent4
+            .line
               |     "production": {
-            .line.indent6
+            .line
               |       "DOMAIN": "
               span(oz-text='domainId')
               | ",
-            .line.indent6
+            .line
               |       "VERB": "
               span(oz-text='verbId')
               | "
-            .line.indent4
+            .line
               |     }
-            .line.indent2
+            .line
               |   }
             .line
               | }
 
 
 block append scripts
+  script(src='/assets/javascripts/vendor/uuid.js')
   script(src='/assets/javascripts/index.js')

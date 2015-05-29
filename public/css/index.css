@@ -1,0 +1,17 @@
+.header {
+  margin-top: 40px;
+  min-height: 80px;
+  margin-bottom: 20px;
+}
+
+
+@media (min-width: 1200px) {
+  .header {
+    margin-top: 90px;
+    margin-bottom: 40px;
+  }
+
+  .terminal {
+    min-height: 320px;
+  }
+}
