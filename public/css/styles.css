@@ -1,0 +1,168 @@
+body {
+  min-height: 2000px;
+  padding-top: 70px;
+}
+
+.header {
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.window {
+  width: 80%;
+  background: #eee;
+  display: block;
+  margin: 20px auto;
+  top: 20%;
+  max-height: 80%;
+  min-height: 100px;
+  position: relative;
+  border-radius: 6px;
+}
+.mac.window {
+  box-shadow: 0 18px 40px 10px rgba(0, 0, 0, 0.36);
+}
+.mac .title-bar {
+  height: 24px;
+  background: -webkit-linear-gradient(top, #f0f0f0, #e9e9e9);
+  background: linear-gradient(to bottom, #f0f0f0, #e9e9e9);
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-top: 1px solid #faf9ff;
+}
+.mac .exit,
+.mac .minimize,
+.mac .zoom {
+  height: 12px;
+  width: 12px;
+  border-radius: 6px;
+  background: #ddd;
+  position: absolute;
+  top: 6px;
+}
+.mac .exit {
+  background-color: #ff6052;
+  left: 10px;
+}
+.mac .minimize {
+  background-color: #ffbe06;
+  left: 32px;
+}
+.mac .zoom {
+  background-color: #16cc37;
+  left: 54px;
+}
+
+.mac .title {
+  text-align: center;
+  line-height: 22px;
+  color: #383637;
+}
+
+.mac .title.document:before {
+  content: '';
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  margin-right: 6px;
+  margin-top: 3px;
+  vertical-align: top;
+  background-image: url(/assets/images/document-icon.png);
+}
+
+
+.terminal, .editor {
+  padding: 20px 30px;
+  font-family: 'Menlo', courier;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.terminal {
+  background-color: #042029;
+  color: #819090;
+}
+
+.terminal:focus {
+  outline: 0;
+}
+
+.terminal .main-prompt {
+  color: #2aa198;
+}
+
+.terminal .command {
+  color: #d33682;
+}
+
+.terminal .arguments {
+  color: #2aa198;
+}
+
+.terminal .cursor:before {
+  content: '\00a0';
+  display: inline-block;
+  background-color: #93a1a1;
+  line-height: 1.3em;
+}
+
+.terminal:focus .cursor:before {
+  -webkit-animation-name: blinker;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+
+  -moz-animation-name: blinker;
+  -moz-animation-duration: 1s;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: infinite;
+
+  animation-name: blinker;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.terminal .line.prompt, .terminal .line .prompt {
+  color: #eee;
+}
+
+.terminal .line.data, .terminal .line .data {
+  color: #93a1a1;
+}
+
+.editor {
+  background-color: #272822;
+  /* JSON */
+  color: #CFCFC2;
+}
+
+.terminal .line.indent2:before, .editor .line.indent2:before {
+  content: "\00a0\00a0";
+}
+
+.terminal .line.indent4:before, .editor .line.indent4:before {
+  content: "\00a0\00a0\00a0\00a0";
+}
+
+.terminal .line.indent6:before, .editor .line.indent6:before {
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0";
+}
+
+@-moz-keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}

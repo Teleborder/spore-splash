@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
+    link(rel='stylesheet' href='/assets/css/styles.css')
+    block title
+      title Spore: Environment Variables in the 21st Century
+  body
+    nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+      .container
+        .navbar-header
+          a.navbar-brand(href='/')
+            | Spore
+    .container#main
+      block content
+    block scripts
+      script(src='/assets/javascripts/vendor/oz-bundle.min.js')
+      script(src='/assets/javascripts/vendor/ready.min.js')
+      script(src='/assets/javascripts/vendor/uuid.js')

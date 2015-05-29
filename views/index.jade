@@ -1,0 +1,75 @@
+extends ./layout.jade
+
+block content
+  h1.header.text-center
+    span(oz-text='Verb') Manage
+    |  environment variables like you 
+    span(oz-text='verb') manage
+    |  code
+
+  .row
+    .col-md-12
+      .window.mac
+        .title-bar
+          .exit
+          .minimize
+          .zoom
+          .title
+            | Terminal &mdash; bash
+        .page
+          .terminal(oz-evt='keypress:type;keydown:keydown;focus:focus' tabindex='0')
+            .line
+              span.main-prompt $
+              span.command
+                |  spore
+              span.arguments
+                |  set -p VERB
+            .line.prompt development:
+            .line.indent2.prompt VERB:
+              span.data
+                |  test
+            .line.prompt production:
+            .line.indent2.prompt VERB:
+              span.data
+                |  
+                span(oz-text='verb') manage
+                span.cursor
+  .row
+    .col-md-12
+      .window.mac
+        .title-bar
+          .exit
+          .minimize
+          .zoom
+          .title.document
+            | .spore &mdash; spore-splash
+        .page
+          .editor
+            .line
+              | {
+            .line.indent2
+              |   "name": "spore-splash",
+            .line.indent2
+              |   "id": "ade689fc-4089-442b-8cb2-149c98ae3640",
+            .line.indent2
+              |   "envs": {
+            .line.indent4
+              |     "development": {
+            .line.indent6
+              |       "VERB": "e7eb9bce-d7f7-45c1-b36f-0ab2455e443f"
+            .line.indent4
+              |     },
+            .line.indent4
+              |     "production": {
+            .line.indent6
+              |       "VERB": "
+              span(oz-text='verbId') 31b5c0ad-5d74-42ba-a6a8-729c3a192799
+              | "
+            .line.indent4
+              |     }
+            .line.indent2
+              |   }
+            .line
+              | }
+block append scripts
+  script(src='/assets/javascripts/index.js')
