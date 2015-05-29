@@ -21,7 +21,7 @@ block content
           .title
             | Terminal &mdash; bash
         .page
-          .terminal(oz-evt='keypress:type;keydown:keydown;focus:focus' tabindex='0')
+          .terminal(style='height:23em;', oz-evt='keypress:type;keydown:keydown;focus:focus' tabindex='0')
             .line
               span.main-prompt $
               span.command
@@ -33,19 +33,11 @@ block content
             .line.prompt
               | development:
             .line.prompt
-              |   DOMAIN:
-              span.data
-                |  spore.dev
-            .line.prompt
               |   VERB:
               span.data
                 |  test
             .line.prompt
               | production:
-            .line.prompt
-              |   DOMAIN:
-              span.data
-                |  spore.sh
             .line.prompt
               |   VERB:
               span.data
@@ -61,7 +53,7 @@ block content
           .title.document
             | .spore &mdash; spore-splash
         .page
-          .editor.json
+          .editor.json(style='height:23em;')
             .line
               | {
             .line
@@ -100,7 +92,186 @@ block content
               |   }
             .line
               | }
+  .row.cta
+    .col-lg-3.col-lg-offset-3.col-md-4.col-md-offset-2.col-sm-6
+      a.btn.btn-default.btn-lg.btn-block(href='/installation')
+        | Install v0.5.0
+    .col-lg-3.col-md-4.col-sm-6
+      a.btn.btn-primary.btn-lg.btn-block(href='#how-it-works')
+        | See how it works 
+        span.glyphicon.glyphicon-menu-down
 
+  .row#how-it-works
+    .col-md-12
+      .row
+        .col-md-12
+          h1.text-center Keep your code and your environment in
+            span.highlight  sync
+          p.lead.text-center
+            | Develop and deploy across multiple environments seamlessly.
+        .col-md-12
+          .window.mac
+            .title-bar
+              .exit
+              .minimize
+              .zoom
+              .title
+                | Terminal &mdash; bash
+            .page
+              .terminal
+                .line
+                  span.main-prompt $
+                  span.command
+                    |  spore
+                  span.arguments
+                    |  set -p SECRET
+                .line.prompt
+                  | === your-app
+                .line.prompt
+                  | development:
+                .line.prompt
+                  |   SECRET:
+                  span.data
+                    |  fake-dev-key
+                .line.prompt
+                  | production:
+                .line.prompt
+                  |   SECRET:
+                  span.data
+                    |  secret-production-key
+        .col-md-12
+          .row.environment
+            .col-lg-1
+              h3.environment-name.dev Dev
+            .col-lg-5
+              .window.mac
+                .title-bar
+                  .exit
+                  .minimize
+                  .zoom
+                  .title
+                    | Terminal &mdash; ruby
+                .page
+                  .terminal(style='height:20em;')
+                    .line
+                      span.main-prompt $
+                      span.command
+                        |  rails
+                      span.arguments
+                        |  console
+                    .line.data
+                      | Loading development environment (Rails 4.2.0)
+                    .line.data
+                      | irb(main):001:0> 
+                      span.arguments
+                        | ENV
+                        span.data [
+                        span.string "SECRET"
+                        span.data ]
+                    .line.data
+                      | => 
+                      span.string "fake-dev-key"
+            .col-lg-6
+              .window.mac
+                .title-bar
+                  .exit
+                  .minimize
+                  .zoom
+                  .title.document
+                    | .spore &mdash; your-app
+                .page
+                  .editor.json(style='height:20em;')
+                    .line
+                      | {
+                    .line
+                      |   "name": "your-app",
+                    .line
+                      |   "id": "2df06b92-b527-4b42-ac75-bf62ace4c459",
+                    .line
+                      |   "envs": {
+                    .line
+                      |     "development": {
+                    .line
+                      |       "SECRET": "df76d664-4571-430c-9690-6d1ca6cb62ea"
+                    .line
+                      |     },
+                    .line
+                      |     "production": {
+                    .line
+                      |       "SECRET": "b10605b6-9471-4bdb-9884-d1eb19fb000c"
+                    .line
+                      |     }
+                    .line
+                      |   }
+                    .line
+                      | }
+
+        .col-md-12
+          .row.environment
+            .col-lg-1
+              h3.environment-name.prod Prod
+            .col-lg-5
+              .window.mac
+                .title-bar
+                  .exit
+                  .minimize
+                  .zoom
+                  .title
+                    | Terminal &mdash; ruby
+                .page
+                  .terminal(style='height:20em;')
+                    .line
+                      span.main-prompt $
+                      span.command
+                        |  rails
+                      span.arguments
+                        |  console
+                    .line.data
+                      | Loading development environment (Rails 4.2.0)
+                    .line.data
+                      | irb(main):001:0> 
+                      span.arguments
+                        | ENV
+                        span.data [
+                        span.string "SECRET"
+                        span.data ]
+                    .line.data
+                      | => 
+                      span.string "secret-production-key"
+            .col-lg-6
+              .window.mac
+                .title-bar
+                  .exit
+                  .minimize
+                  .zoom
+                  .title.document
+                    | .spore &mdash; your-app
+                .page
+                  .editor.json(style='height:20em;')
+                    .line
+                      | {
+                    .line
+                      |   "name": "your",
+                    .line
+                      |   "id": "",
+                    .line
+                      |   "envs": {
+                    .line
+                      |     "development": {
+                    .line
+                      |       "SECRET": "df76d664-4571-430c-9690-6d1ca6cb62ea"
+                    .line
+                      |     },
+                    .line
+                      |     "production": {
+                    .line
+                      |       "SECRET": "b10605b6-9471-4bdb-9884-d1eb19fb000c"
+                    .line
+                      |     }
+                    .line
+                      |   }
+                    .line
+                      | }
 
 block append scripts
   script(src='/assets/javascripts/vendor/uuid.js')

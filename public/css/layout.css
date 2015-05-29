@@ -77,6 +77,33 @@ footer .nav > li > a:hover {
   color: #f9f8f8;
 }
 
+.btn-default {
+  color: #f9f8f8;
+  border-color: #f9f8f8;
+  background: transparent;
+}
+
+.btn-default:hover {
+  background: #f9f8f8;
+  border-color: #f9f8f8;;
+  color: #638f57;
+}
+
+.btn-primary {
+  color: #f9f8f8;
+  background: #638f57;
+  border-color: #638f57;
+}
+
+.btn-primary:hover {
+  background: #638f57;
+  border-color: #638f57;
+}
+
+.btn-lg {
+  border-radius: 4px;
+}
+
 .pre-wrap {
   white-space: pre-wrap;
 }

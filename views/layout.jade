@@ -21,8 +21,8 @@ html
             .navbar-logo
         .navbar-collapse(oz-attr='class:collapse')
           ul.nav.navbar-nav.navbar-left
-            li(class=howItWorks ? 'active' : '')
-              a(href='/how-it-works') How it works
+            li(oz-attr='class:howItWorksActive')
+              a(href='/#how-it-works') How it works
             li(class=collaboration ? 'active' : '')
               a(href='/collaboration') Collaboration
             li(class=security ? 'active' : '')

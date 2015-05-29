@@ -122,6 +122,10 @@
   color: #93a1a1;
 }
 
+.terminal .line .string {
+  color: #dc322f;
+}
+
 .editor {
   background-color: #272822;
   color: #F8F8F2;

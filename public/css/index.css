@@ -4,14 +4,55 @@
   margin-bottom: 20px;
 }
 
+.cta {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.environment {
+  /* #baf2bb, opacity 0.3 */
+  border: 2px solid #638f57;
+  border-radius: 4px;
+  margin-bottom: 40px;
+}
+
+.environment .environment-name {
+  text-transform: uppercase;
+  color: #638f57;
+  font-size: 4em;
+  text-align: center;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
 
 @media (min-width: 1200px) {
+  .cta {
+    margin-bottom: 100px;
+  }
+
   .header {
     margin-top: 90px;
     margin-bottom: 40px;
   }
 
-  .terminal {
-    min-height: 320px;
+  .environment {
+    padding: 40px 0 0;
+  }
+
+  .environment .environment-name {
+    width: 4em;
+    word-wrap: break-word;
+    letter-spacing: 4em;
+    line-height: 1.1em;
+    margin-left: 0.4em;
+    margin-bottom: 0;
+  }
+
+  .environment .environment-name.dev {
+    margin-top: 65px;
+  }
+
+  .environment .environment-name.prod {
+    margin-top: 20px;
   }
 }
