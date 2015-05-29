@@ -2,6 +2,7 @@ doctype html
 html
   head
     link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
+    link(href='http://fonts.googleapis.com/css?family=Raleway:600,800,400,200' rel='stylesheet' type='text/css')
     link(rel='stylesheet' href='/assets/css/styles.css')
     block title
       title Spore: Environment Variables in the 21st Century
@@ -9,8 +10,17 @@ html
     nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
       .container
         .navbar-header
-          a.navbar-brand(href='/')
-            | Spore
+          a.navbar-brand(class=index ? 'active' : '', href='/', title='Spore')
+            .navbar-logo
+        ul.nav.navbar-nav.navbar-left
+          li(class=howItWorks ? 'active' : '')
+            a(href='/how-it-works') How it works
+          li(class=collaboration ? 'active' : '')
+            a(href='/collaboration') Collaboration
+          li(class=security ? 'active' : '')
+            a(href='/security') Security
+          li(class=installation ? 'active' : '')
+            a(href='/installation') Getting Started
     .container#main
       block content
     block scripts

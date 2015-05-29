@@ -1,14 +1,24 @@
 domready(function () {
   var main = document.getElementById('main'),
-      verbs = ["manage", "write", "review", "collaborate on"],
+      verbs = ["manage", "deploy", "review", "collaborate on", "edit"],
       pageTemplate = Oz(main),
       page = {
+        appId: uuid(),
+        developmentVerbId: uuid(),
+        domainId: uuid(),
+        developmentDomainId: uuid(),
         verb: verbs[0],
+        _verb: verbs[0],
         Verb: function () {
           return (this.verb[0] || "").toUpperCase() + this.verb.slice(1);
         },
+        _verbId: null,
         verbId: function () {
-          return uuid();
+          if(this.verb !== this._verb || !this._verbId) {
+            this._verbId = uuid();
+            this._verb = this.verb;
+          }
+          return this._verbId;
         }
       },
       nextVerbTimer,
@@ -48,7 +58,7 @@ domready(function () {
 
           pageTemplate.update(page);
           rotateLetter();
-        }, 125);
+        }, 75);
       }
     }, secs * 1000);
   }
