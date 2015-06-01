@@ -21,14 +21,14 @@ html
             .navbar-logo
         .navbar-collapse(oz-attr='class:collapse')
           ul.nav.navbar-nav.navbar-left
-            li(oz-attr='class:howItWorksActive')
-              a(href='/#how-it-works') How it works
-            li(class=collaboration ? 'active' : '')
-              a(href='/collaboration') Collaboration
-            li(class=security ? 'active' : '')
-              a(href='/security') Security
+            li(oz-attr='class:seamlessActive')
+              a(href='/#seamless') Work Seamlessly
+            li(oz-attr='class:inSyncActive')
+              a(href='/#in-sync') Stay In Sync
+            li(oz-attr='class:collaborateActive')
+              a(href='/#collaborate') Collaborate
             li(class=installation ? 'active' : '')
-              a(href='/installation') Getting Started
+              a(href='/installation') Get Started
     .container#main
       block content
 

@@ -96,8 +96,9 @@ footer .nav > li > a:hover {
 }
 
 .btn-primary:hover {
-  background: #638f57;
-  border-color: #638f57;
+  background: #f9f8f8;
+  border-color: #f9f8f8;;
+  color: #638f57;
 }
 
 .btn-lg {

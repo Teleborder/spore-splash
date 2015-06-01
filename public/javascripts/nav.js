@@ -2,17 +2,13 @@ domready(function () {
   var navDom = document.getElementById('nav'),
       navTemplate = Oz(navDom),
       nav = {
-        howItWorks: false,
-        howItWorksActive: function () {
-          return this.howItWorks ? 'active' : '';
-        },
         collapsed: true,
         collapse: function () {
           return this.collapsed ? 'navbar-collapse collapse' : 'navbar-collapse';
         }
       };
 
-  window.addEventListener('scroll', howItWorksVisible);
+  window.addEventListener('scroll', visibleElements);
 
   navTemplate.on('collapse', function () {
     nav.collapsed = !nav.collapsed;
@@ -22,14 +18,31 @@ domready(function () {
   // render to the page
   navDom.parentNode.replaceChild(navTemplate.render(nav), navDom);
 
-  // initialize
-  howItWorksVisible();
+  // initialize menu sections
+  visibleElements();
 
 
-  function howItWorksVisible() {
-    nav.howItWorks = checkvisible(document.getElementById('how-it-works'));
+  function visibleElements() {
+    var sections = ['seamless', 'inSync', 'collaborate'];
+    sections.forEach(function (section) {
+      nav[section] = checkvisible(document.getElementById(section.replace(/([a-z][A-Z])/g, function (g) {
+        return g[0] + '-' + g[1].toLowerCase();
+      })));
+
+      nav[section + 'Active'] = function () {
+        return this[section] ? 'active' : '';
+      };
+
+      // set all other sections to false if this one is highlighted
+      if(nav[section]) {
+        sections.forEach(function (s) {
+          if(section !== s) {
+            nav[s] = false;
+          }
+        });
+      }
+    });
     navTemplate.update(nav);
-    console.log(nav);
   }
 
 
@@ -61,11 +74,6 @@ domready(function () {
   }
 
   function checkvisible( elm ) {
-    return posY(elm) < (scrollY() + (viewPortHeight() / 2));
-      var vpH = viewPortHeight(), // Viewport Height
-          st = scrollY(), // Scroll Top
-          y = posY(elm);
-
-      return (y > (vpH + st));
+    return (scrollY() + (viewPortHeight() * 0.4)) > posY(elm)
   }
 });

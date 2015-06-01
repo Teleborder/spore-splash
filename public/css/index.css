@@ -6,7 +6,11 @@
 
 .cta {
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
+}
+
+.section {
+  padding-top: 50px;
 }
 
 .environment {
@@ -26,9 +30,6 @@
 }
 
 @media (min-width: 1200px) {
-  .cta {
-    margin-bottom: 100px;
-  }
 
   .header {
     margin-top: 90px;

@@ -122,8 +122,16 @@
   color: #93a1a1;
 }
 
-.terminal .line .string {
+.terminal .line.string,
+.terminal .line .string,
+.terminal .line.error,
+.terminal .line .error {
   color: #dc322f;
+}
+
+.terminal .line.options,
+.terminal .line .options {
+  color: #b58900;
 }
 
 .editor {

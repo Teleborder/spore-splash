@@ -19,7 +19,8 @@ domready(function () {
             this._verb = this.verb;
           }
           return this._verbId;
-        }
+        },
+        yesterday: new Date().toString()
       },
       nextVerbTimer,
       nextLetterTimer,

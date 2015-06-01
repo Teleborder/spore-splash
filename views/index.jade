@@ -97,28 +97,30 @@ block content
       a.btn.btn-default.btn-lg.btn-block(href='/installation')
         | Install v0.5.0
     .col-lg-3.col-md-4.col-sm-6
-      a.btn.btn-primary.btn-lg.btn-block(href='#how-it-works')
-        | See how it works 
+      a.btn.btn-primary.btn-lg.btn-block(href='#seamless')
+        | Work Seamlessly 
         span.glyphicon.glyphicon-menu-down
 
-  .row#how-it-works
+  .row.section#seamless
     .col-md-12
       .row
         .col-md-12
-          h1.text-center Keep your code and your environment in
-            span.highlight  sync
+          h1.text-center Develop and deploy across multiple environments
+            span.highlight  seamlessly
+            | .
           p.lead.text-center
-            | Develop and deploy across multiple environments seamlessly.
-        .col-md-12
+            | Set variables once, and every server loads its correct environment.
+        .col-lg-6
+          h3.text-center.highlight Develop
           .window.mac
             .title-bar
               .exit
               .minimize
               .zoom
               .title
-                | Terminal &mdash; bash
+                | Terminal &mdash; ruby
             .page
-              .terminal
+              .terminal(style='min-height:20em;')
                 .line
                   span.main-prompt $
                   span.command
@@ -139,139 +141,316 @@ block content
                   |   SECRET:
                   span.data
                     |  secret-production-key
-        .col-md-12
-          .row.environment
-            .col-lg-1
-              h3.environment-name.dev Dev
-            .col-lg-5
-              .window.mac
-                .title-bar
-                  .exit
-                  .minimize
-                  .zoom
-                  .title
-                    | Terminal &mdash; ruby
-                .page
-                  .terminal(style='height:20em;')
-                    .line
-                      span.main-prompt $
-                      span.command
-                        |  rails
-                      span.arguments
-                        |  console
-                    .line.data
-                      | Loading development environment (Rails 4.2.0)
-                    .line.data
-                      | irb(main):001:0> 
-                      span.arguments
-                        | ENV
-                        span.data [
-                        span.string "SECRET"
-                        span.data ]
-                    .line.data
-                      | => 
-                      span.string "fake-dev-key"
-            .col-lg-6
-              .window.mac
-                .title-bar
-                  .exit
-                  .minimize
-                  .zoom
-                  .title.document
-                    | .spore &mdash; your-app
-                .page
-                  .editor.json(style='height:20em;')
-                    .line
-                      | {
-                    .line
-                      |   "name": "your-app",
-                    .line
-                      |   "id": "2df06b92-b527-4b42-ac75-bf62ace4c459",
-                    .line
-                      |   "envs": {
-                    .line
-                      |     "development": {
-                    .line
-                      |       "SECRET": "df76d664-4571-430c-9690-6d1ca6cb62ea"
-                    .line
-                      |     },
-                    .line
-                      |     "production": {
-                    .line
-                      |       "SECRET": "b10605b6-9471-4bdb-9884-d1eb19fb000c"
-                    .line
-                      |     }
-                    .line
-                      |   }
-                    .line
-                      | }
+                .line.data
+                  | SECRET set for your-app/development,production
+                .line
+                  | 
+                .line
+                  span.main-prompt $
+                  span.command
+                    |  rails
+                  span.arguments
+                    |  console
+                .line.data
+                  | Loading development environment (Rails 4.2.0)
+                .line.data
+                  | irb(main):001:0> 
+                  span.arguments
+                    | ENV
+                    span.data [
+                    span.string "SECRET"
+                    span.data ]
+                .line.data
+                  | => 
+                  span.string "fake-dev-key"
+        .col-lg-6
+          h3.text-center.highlight Deploy
+          .window.mac
+            .title-bar
+              .exit
+              .minimize
+              .zoom
+              .title
+                | Terminal &mdash; ssh
+            .page
+              .terminal(style='min-height:20em;')
+                .line
+                  span.main-prompt $
+                  span.command
+                    |  ./deploy_app.sh
+                .line
+                  | your-app deployed to production-server.example
+                .line
+                  | 
+                .line
+                  span.main-prompt $
+                  span.command
+                    |  ssh
+                  span.arguments
+                    |  you@production-server.example
+                .line.data
+                  | you@production-server.example's password:
+                .line.data
+                  | Welcome to your production server
+                .line.data
+                  | 
+                .line.data
+                  | Last login 
+                  span(oz-text='yesterday')
+                .line
+                  span.main-prompt
+                    | you@production-server.example:~$ 
+                  span.command rails 
+                  span.arguments console
+                .line.data
+                  | Loading development environment (Rails 4.2.0)
+                .line.data
+                  | irb(main):001:0> 
+                  span.arguments
+                    | ENV
+                    span.data [
+                    span.string "SECRET"
+                    span.data ]
+                .line.data
+                  | => 
+                  span.string "secret-production-key"
 
+  .row.cta
+    .col-lg-3.col-lg-offset-3.col-md-4.col-md-offset-2.col-sm-6
+      a.btn.btn-default.btn-lg.btn-block(href='/installation')
+        | Install v0.5.0
+    .col-lg-3.col-md-4.col-sm-6
+      a.btn.btn-primary.btn-lg.btn-block(href='#in-sync')
+        | Stay in sync 
+        span.glyphicon.glyphicon-menu-down
+
+  .row.section#in-sync
+    .col-md-12
+      .row
         .col-md-12
-          .row.environment
-            .col-lg-1
-              h3.environment-name.prod Prod
-            .col-lg-5
-              .window.mac
-                .title-bar
-                  .exit
-                  .minimize
-                  .zoom
-                  .title
-                    | Terminal &mdash; ruby
-                .page
-                  .terminal(style='height:20em;')
-                    .line
-                      span.main-prompt $
-                      span.command
-                        |  rails
-                      span.arguments
-                        |  console
-                    .line.data
-                      | Loading development environment (Rails 4.2.0)
-                    .line.data
-                      | irb(main):001:0> 
-                      span.arguments
-                        | ENV
-                        span.data [
-                        span.string "SECRET"
-                        span.data ]
-                    .line.data
-                      | => 
-                      span.string "secret-production-key"
-            .col-lg-6
-              .window.mac
-                .title-bar
-                  .exit
-                  .minimize
-                  .zoom
-                  .title.document
-                    | .spore &mdash; your-app
-                .page
-                  .editor.json(style='height:20em;')
-                    .line
-                      | {
-                    .line
-                      |   "name": "your",
-                    .line
-                      |   "id": "",
-                    .line
-                      |   "envs": {
-                    .line
-                      |     "development": {
-                    .line
-                      |       "SECRET": "df76d664-4571-430c-9690-6d1ca6cb62ea"
-                    .line
-                      |     },
-                    .line
-                      |     "production": {
-                    .line
-                      |       "SECRET": "b10605b6-9471-4bdb-9884-d1eb19fb000c"
-                    .line
-                      |     }
-                    .line
-                      |   }
-                    .line
-                      | }
+          h1.text-center Keep your code and your environment in 
+            span.highlight sync
+            | .
+          p.lead.text-center Changes to an environment don't go live until the code does.
+        .col-lg-12
+          .window.mac
+            .title-bar
+              .exit
+              .minimize
+              .zoom
+              .title
+                | Terminal &mdash; ruby
+            .page
+              .terminal
+                .line
+                  span.main-prompt $
+                  span.command
+                    |  rails
+                  span.arguments
+                    |  console
+                .line.data
+                  | Loading development environment (Rails 4.2.0)
+                .line.data
+                  | irb(main):001:0> 
+                  span.arguments
+                    | ENV
+                    span.data [
+                    span.string "DATABASE_URL"
+                    span.data ]
+                .line.data
+                  | => 
+                  span.string "mysql://localhost/your-app_development"
+                .line
+                  | 
+                .line
+                  span.main-prompt $
+                  span.command
+                    |  git
+                  span.arguments
+                    |  checkout -b switch_to_postgres
+                .line.data Switched to a new branch 'switch_to_postgres'
+                .line
+                  | 
+                .line
+                  span.main-prompt $
+                  span.command
+                    |  spore
+                  span.arguments
+                    |  set -p DATABASE_URL
+                .line.prompt
+                  | === your-app
+                .line.prompt
+                  | development:
+                .line.prompt
+                  |   DATABASE_URL:
+                  span.data
+                    |  postgresql://localhost/your-app_development
+                .line.prompt
+                  | production:
+                .line.prompt
+                  |   DATABASE_URL:
+                  span.data
+                    |  postgres://skebnsvfvzeuvl:sUCLlpqx0W0IjFre8p5qMlHLFW@database-server.example:5432/d7r012dbbj2il8
+                .line.data
+                  | DATABASE_URL set for your-app/development,production
+                .line
+                  | 
+                .line
+                  span.main-prompt $
+                  span.command
+                    |  git
+                  span.arguments
+                    |  commit -am
+                  span.options
+                    |  "add new postgres urls"
+                .line
+                  | 
+                .line
+                  span.main-prompt $
+                  span.command
+                    |  rails
+                  span.arguments
+                    |  console
+                .line.data
+                  | Loading development environment (Rails 4.2.0)
+                .line.data
+                  | irb(main):001:0> 
+                  span.arguments
+                    | ENV
+                    span.data [
+                    span.string "DATABASE_URL"
+                    span.data ]
+                .line.data
+                  | => 
+                  span.string "postgresql://localhost/your-app_development"
+                .line
+                  | 
+                .line
+                  span.main-prompt $
+                  span.command
+                    |  git
+                  span.arguments
+                    |  checkout master
+                .line.data Switched to branch 'master'
+                .line
+                  | 
+                .line
+                  span.main-prompt $
+                  span.command
+                    |  rails
+                  span.arguments
+                    |  console
+                .line.data
+                  | Loading development environment (Rails 4.2.0)
+                .line.data
+                  | irb(main):001:0> 
+                  span.arguments
+                    | ENV
+                    span.data [
+                    span.string "DATABASE_URL"
+                    span.data ]
+                .line.data
+                  | => 
+                  span.string "mysql://localhost/your-app_development"
+
+  .row.cta
+    .col-lg-3.col-lg-offset-3.col-md-4.col-md-offset-2.col-sm-6
+      a.btn.btn-default.btn-lg.btn-block(href='/installation')
+        | Install v0.5.0
+    .col-lg-3.col-md-4.col-sm-6
+      a.btn.btn-primary.btn-lg.btn-block(href='#collaborate')
+        | Collaborate 
+        span.glyphicon.glyphicon-menu-down
+
+  .row.section#collaborate
+    .col-md-12
+      .row
+        .col-md-12
+          h1.text-center
+            span.highlight Collaborate
+            |  without compromising security.
+          p.lead.text-center Share your app with anyone without sharing your app's secrets.
+        .col-lg-6
+          h3.text-center.highlight You
+          .window.mac
+            .title-bar
+              .exit
+              .minimize
+              .zoom
+              .title
+                | Terminal &mdash; bash
+            .page
+              .terminal(style='min-height:20em;')
+                .line
+                  span.main-prompt $
+                  span.command
+                    |  spore
+                  span.arguments
+                    |  set -p SECRET
+                .line.prompt
+                  | === your-app
+                .line.prompt
+                  | development:
+                .line.prompt
+                  |   SECRET:
+                  span.data
+                    |  fake-dev-key
+                .line.prompt
+                  | production:
+                .line.prompt
+                  |   SECRET:
+                  span.data
+                    |  secret-production-key
+                .line.data
+                  | SECRET set for your-app/development,production
+                .line
+                  | 
+                .line
+                  span.main-prompt $
+                  span.command
+                    |  spore
+                  span.arguments
+                    |  grant contractor@production-server.example
+                .line.data
+                  | Read access for your-app/development granted for contractor@production-server.example
+        .col-lg-6
+          h3.text-center.highlight Your Collaborator
+          .window.mac
+            .title-bar
+              .exit
+              .minimize
+              .zoom
+              .title
+                | Terminal &mdash; bash
+            .page
+              .terminal(style='min-height:20em;')
+                .line
+                  span.main-prompt $
+                  span.command
+                    |  spore
+                  span.arguments
+                    |  get --environment development
+                .line.data
+                  | === your-app
+                .line.data
+                  | development:
+                .line.data
+                  |   SECRET: fake-dev-key
+                .line
+                  | 
+                .line
+                  span.main-prompt $
+                  span.command
+                    |  spore
+                  span.arguments
+                    |  get --environment production
+                .line.error
+                  | You haven't been granted read access on your-app/production
+
+  .row.cta
+    .col-lg-4.col-lg-offset-4.col-md-4.col-md-offset-4.col-sm-6.col-sm-offset-3
+      a.btn.btn-default.btn-lg.btn-block(href='/installation')
+        | Install v0.5.0
 
 block append scripts
   script(src='/assets/javascripts/vendor/uuid.js')
