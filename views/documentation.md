@@ -1,3 +1,5 @@
+# Documentation
+
 ## Installation
 
 The recommended way to install spore is with the one-line installer below:
@@ -132,7 +134,7 @@ And this command will get all of the environment variables for your default envi
 $ spore get
 ```
 
-You can use the `--environment` and `--all` flags just like [`spore set`](#setting-environment-variables)
+You can use the `--environment` and `--all` flags just like [`spore set`](#setting-environment-variables).
 
 
 

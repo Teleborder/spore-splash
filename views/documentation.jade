@@ -7,38 +7,39 @@ block title
   title Documentation | Spore
 
 block content
-  .row
+  .row#documentation
     .col-sm-4.col-lg-3
-      .panel.panel-default
+      .panel.panel-default.documentation-nav
         .panel-body
           ul.nav.nav-pills.nav-stacked
-            li.active
+            li(oz-attr='class:installationActive')
               a(href='#installation') Installation
-            li
+            li(oz-attr='class:creatingASporeActive')
               a(href='#creating-a-spore') Creating a Spore
-            li
+            li(oz-attr='class:migratingToSporeActive')
               a(href='#migrating-to-spore') Migrating to Spore
-            li
+            li(oz-attr='class:settingEnvironmentVariablesActive')
               a(href='#setting-environment-variables') Setting Environment Variables
-            li
+            li(oz-attr='class:creatingNewEnvironmentsActive')
               a(href='#creating-new-environments') Creating New Environments
-            li
+            li(oz-attr='class:readingEnvironmentVariablesActive')
               a(href='#reading-environment-variables') Reading Environment Variables
-            li
+            li(oz-attr='class:creatingDeploymentsActive')
               a(href='#creating-deployments') Creating Deployments
-            li
-              a(href='#granting-permission') Granting Permissions
-            li
-              a(href='#revoking-permission') Revoking Permissions
-            li
+            li(oz-attr='class:grantingPermissionsActive')
+              a(href='#granting-permissions') Granting Permissions
+            li(oz-attr='class:revokingPermissionsActive')
+              a(href='#revoking-permissions') Revoking Permissions
+            li(oz-attr='class:versionControlActive')
               a(href='#version-control') Version Control
 
     .col-sm-8.col-lg-9
-      .panel.panel-default
+      .panel.panel-default.documentation-body
         .panel-body
           != documentation
 
-          
+
 
 
 block append scripts
+  script(src='/assets/javascripts/documentation.js')
