@@ -33,7 +33,9 @@ domready(function () {
       'creatingNewEnvironments',
       'creatingDeployments',
       'permissions',
-      'versionControl'
+      'versionControl',
+      'security',
+      'otherIssues'
     ];
     sections.forEach(function (section) {
       var id = section,

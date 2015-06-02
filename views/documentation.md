@@ -279,6 +279,32 @@ environment variable keys are very effective in flagging important changes to th
 
 
 
+## Security
+
+### Login Credentials
+
+When you log into Spore, you are actually requesting a new API key from the server. Your old API key will be immediately invalidated when the new one is issued.
+
+Your password is never stored anywere (it's hashed in the database for the Spore Pod), but your API key is stored locally
+in your `.netrc` file. If you have reason to believe that file has been compromised, you should immediately issue a
+`spore login` command to invalidate the old key. At that point you should check your list of deployments for any additions, and then begin the process of rolling all of your keys.
+
+It's important to note that Spore deployment credentials are not stored anywhere.
+
+### Environment Variable Values
+
+Every environment variable value (called a `cell`) is stored in the `.spore` file in your repository with a hex id.
+It's a [UUID v4](http://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_.28random.29) generated using
+the Node.js `crypto.randomBytes`, a cryptographically secure random number generator.
+
+Even if the same value for the same key is set twice, it will receive a new UUID, meaning that knowing the id provides
+zero information about the value in the cell.
+
+The actual values are encrypted in transit using SSL, and are encrypted at rest using AES-256-CBC via the [Tomb](https://github.com/spore-sh/tomb) module.
+
+The [Spore Pod](https://github.com/spore-sh/spore-pod), where your values are stored, is 100% open source, and you're welcome to inspect the source for security flaws. Pull Requests and issues regarding security concerns are more than welcome.
+
+
 ## Other Issues
 
 If you have any other issues or questions, you can direct them to the [GitHub issues page for spore-cli](https://github.com/spore-sh/spore-cli-node). If it feels like something that would be better dealt with in private, send us an email at [hello@spore.sh](mailto:hello@spore.sh).
