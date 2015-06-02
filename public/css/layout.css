@@ -10,7 +10,7 @@
 
 body {
   padding-top: 70px;
-  background: #313131 url(/assets/images/escheresque_ste-trans.png);
+  background: #313131 url(/images/escheresque_ste-trans.png);
   color: #cdd3ce;
   font-family: 'Raleway', sans-serif;
 }
@@ -29,7 +29,7 @@ a {
   height: 31px;
   width: 92px;
   margin-top: -7px;
-  background-image: url(/assets/images/lower-spore-logo-light-gray.png);
+  background-image: url(/images/lower-spore-logo-light-gray.png);
   background-size: 92px 31px;
   display: inline-block;
 }

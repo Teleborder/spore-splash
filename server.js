@@ -3,7 +3,7 @@ var express = require('express'),
     path = require('path'),
     documentation = require('./documentation');
 
-app.use('/assets', express.static(path.resolve(__dirname, 'public')));
+app.use(express.static(path.resolve(__dirname, 'public')));
 
 app.set('views', './views');
 app.set('view engine', 'jade');
