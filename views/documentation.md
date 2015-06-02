@@ -225,3 +225,9 @@ show up when your code does.
 
 This also makes it easy to review changes to environment variables. Although the values are hashed, the diffs for
 environment variable keys are very effective in flagging important changes to the app.
+
+
+
+## Other Issues
+
+If you have any other issues or questions, you can direct them to the [GitHub issues page for spore-cli](https://github.com/spore-sh/spore-cli-node). If it feels like something that would be better dealt with in private, send us an email at [hello@spore.sh](mailto:hello@spore.sh).
