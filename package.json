@@ -15,13 +15,14 @@
     "splash"
   ],
   "author": "Trey Griffith <trey@teleborder.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Teleborder/spore-splash/issues"
   },
   "homepage": "https://github.com/Teleborder/spore-splash#readme",
   "dependencies": {
     "express": "^4.12.4",
-    "jade": "^1.10.0"
+    "jade": "^1.10.0",
+    "marked": "^0.3.3"
   }
 }
