@@ -114,10 +114,49 @@ $ spore set --all MY_VAR
 The most important thing after setting up your environment variables is running your app so that Spore can load
 the saved variables into the environment.
 
+
 ### Using Rails
 
-Use the official [Rails gem](https://github.com/spore-sh/spore-rails) to automatically load your Spore
-environment variables while booting Rails.
+Use the official [Rails gem](https://github.com/spore-sh/spore-rails) by adding this line to the top of your application's Gemfile:
+
+```
+gem 'spore-rails'
+```
+
+And then execute:
+
+```
+$ bundle
+```
+
+See [spore-rails](https://github.com/spore-sh/spore-rails) for important information on load order.
+
+
+### Using Ruby
+
+Install the official [gem](https://github.com/spore-sh/spore-rails) :
+
+```
+$ gem install spore
+```
+
+As early as possible in your application bootstrap process:
+
+```
+require 'spore'
+Spore.load
+```
+
+To ensure your environment is loaded in rake, load the tasks:
+
+```
+require 'spore/tasks'
+
+task :mytask => :spore do
+    # things that require environment to be loaded
+end
+```
+
 
 ### Using Node.js
 
