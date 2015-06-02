@@ -1,6 +1,7 @@
 var express = require('express'),
     app = express(),
-    path = require('path');
+    path = require('path'),
+    documentation = require('./documentation');
 
 app.use('/assets', express.static(path.resolve(__dirname, 'public')));
 
@@ -11,16 +12,8 @@ app.get('/', function (req, res, next) {
   res.render('index', { index: true });
 });
 
-app.get('/collaboration', function (req, res, next) {
-  res.render('index', { collaboration: true });
-});
-
-app.get('/security', function (req, res, next) {
-  res.render('index', { security: true });
-});
-
-app.get('/installation', function (req, res, next) {
-  res.render('index', { installation: true });
+app.get('/documentation', function (req, res, next) {
+  res.render('documentation', { documentation: documentation });
 });
 
 app.listen(process.env.PORT || 3111);

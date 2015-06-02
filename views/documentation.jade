@@ -1,0 +1,44 @@
+extends ./layout.jade
+
+block append css
+  link(rel='stylesheet' href='/assets/css/documentation.css')
+
+block title
+  title Documentation | Spore
+
+block content
+  .row
+    .col-sm-4.col-lg-3
+      .panel.panel-default
+        .panel-body
+          ul.nav.nav-pills.nav-stacked
+            li.active
+              a(href='#installation') Installation
+            li
+              a(href='#creating-a-spore') Creating a Spore
+            li
+              a(href='#migrating-to-spore') Migrating to Spore
+            li
+              a(href='#setting-environment-variables') Setting Environment Variables
+            li
+              a(href='#creating-new-environments') Creating New Environments
+            li
+              a(href='#reading-environment-variables') Reading Environment Variables
+            li
+              a(href='#creating-deployments') Creating Deployments
+            li
+              a(href='#granting-permission') Granting Permissions
+            li
+              a(href='#revoking-permission') Revoking Permissions
+            li
+              a(href='#version-control') Version Control
+
+    .col-sm-8.col-lg-9
+      .panel.panel-default
+        .panel-body
+          != documentation
+
+          
+
+
+block append scripts

@@ -25,9 +25,10 @@ domready(function () {
   function visibleElements() {
     var sections = ['seamless', 'inSync', 'collaborate'];
     sections.forEach(function (section) {
-      nav[section] = checkvisible(document.getElementById(section.replace(/([a-z][A-Z])/g, function (g) {
+      var el = document.getElementById(section.replace(/([a-z][A-Z])/g, function (g) {
         return g[0] + '-' + g[1].toLowerCase();
-      })));
+      }));
+      nav[section] = el && checkvisible(el);
 
       nav[section + 'Active'] = function () {
         return this[section] ? 'active' : '';

@@ -27,8 +27,10 @@ html
               a(href='/#in-sync') Stay In Sync
             li(oz-attr='class:collaborateActive')
               a(href='/#collaborate') Collaborate
-            li(class=installation ? 'active' : '')
-              a(href='/installation') Get Started
+          ul.nav.navbar-nav.navbar-right
+            li(class=documentation ? 'active' : '')
+              a(href='/documentation') Documentation
+
     .container#main
       block content
 

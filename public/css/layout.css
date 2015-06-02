@@ -15,6 +15,10 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
+a {
+  color: #638f57;
+}
+
 .navbar {
   background: #638f57;
   border: none;
@@ -55,6 +59,22 @@ body {
 
 .navbar .navbar-toggle:hover .icon-bar {
   background-color: #638f57;
+}
+
+.nav-pills > li a:hover,
+.nav-pills > li a:active,
+.nav-pills > li a:focus,
+.nav-pills > li.active a,
+.nav-pills > li.active a:hover,
+.nav-pills > li.active a:active,
+.nav-pills > li.active a:focus {
+  color: #f9f8f8;
+  background-color: #638f57; 
+}
+
+.panel {
+  background-color: #f9f8f8;
+  color: #313131;
 }
 
 #main {
@@ -111,4 +131,10 @@ footer .nav > li > a:hover {
 
 .highlight {
   color: #baf2bb;
+}
+
+pre {
+  background-color: #042029;
+  border-color: #042029;
+  color: #819090;
 }
