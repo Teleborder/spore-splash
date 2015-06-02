@@ -24,9 +24,9 @@ The installer will install the following components with an interactive script:
 
 You can install these scripts independently by checking the README's in their repos.
 
-It's important to note that `spored` will attempt to create a LaunchAgent on OS X to run as a background proxy server
+It's important to note that `spored` will attempt to create a daemonized process to run as a background proxy server
 between you and the spore pod. This is required to maintain offline functionality. Currently the only automated process
-for setting up the daemonized server is for OS X. On other systems, you'll need to set it up yourself. See [spored](https://github.com/spore-sh/spored) for more information.
+for setting up the daemonized server is for OS X (using `launchd`). On other systems, you'll need to set it up yourself. See [spored](https://github.com/spore-sh/spored) for more information.
 
 
 

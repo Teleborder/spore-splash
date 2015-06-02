@@ -3,6 +3,7 @@ html
   head
     block css
       link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
+      link(rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
       link(href='http://fonts.googleapis.com/css?family=Raleway:600,800,400,200' rel='stylesheet' type='text/css')
       link(rel='stylesheet' href='/assets/css/layout.css')
     block title
@@ -29,7 +30,9 @@ html
               a(href='/#collaborate') Collaborate
           ul.nav.navbar-nav.navbar-right
             li(class=documentation ? 'active' : '')
-              a(href='/documentation') Documentation
+              a(href='/documentation') Docs
+            li
+              a(href='/documentation#installation') Install
 
     .container#main
       block content
@@ -38,12 +41,20 @@ html
       .container
         .row
           .col-md-4
-            h4 About
-            ul.nav
-              li
-                a(href='/') Team
+            h3.text-center
+              a(href='https://github.com/spore-sh')
+                i.fa.fa-github.fa-2x
+                |  GitHub
           .col-md-4
+            h3.text-center
+              a(href='https://github.com/spore-sh')
+                i.fa.fa-twitter.fa-2x
+                |  Twitter
           .col-md-4
+            h3.text-center
+              a(href='mailto:hello@spore.sh')
+                i.fa.fa-envelope-o.fa-2x
+                |  Email
     block scripts
       script(src='/assets/javascripts/vendor/oz-bundle.min.js')
       script(src='/assets/javascripts/vendor/ready.min.js')

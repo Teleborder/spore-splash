@@ -88,13 +88,20 @@ footer {
   color: #f9f8f8;
 }
 
+footer a,
 footer .nav > li > a {
   color: #baf2bb;
 }
 
-footer .nav > li > a:hover {
+footer a:hover,
+footer .nav > li > a:hover,
+footer a:active,
+footer .nav > li > a:active,
+footer a:focus,
+footer .nav > li > a:focus {
   background: none;
   color: #f9f8f8;
+  text-decoration: none;
 }
 
 .btn-default {
@@ -137,4 +144,12 @@ pre {
   background-color: #042029;
   border-color: #042029;
   color: #819090;
+}
+
+.fa {
+  vertical-align: text-top;
+}
+
+.fa-2x {
+  line-height: 0.5em;
 }
