@@ -238,7 +238,7 @@ on your team can *create* environment variables on their local branch, but only 
 That means that everyone on your team can contribute to development without encountering bottlenecks, but without
 exposing all of your app secrets to everyone on your team.
 
-If the person you are inviting will receive an email with instructions for installation and acceptance so they can
+The person you invite will receive an email with instructions for installation and acceptance so they can
 begin collaborating with you.
 
 
