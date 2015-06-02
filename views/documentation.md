@@ -45,6 +45,7 @@ Creating a Spore will automatically initialize a few default environments: `deve
 
 
 
+
 ## Migrating to Spore
 
 ### For Heroku Users
@@ -107,14 +108,42 @@ $ spore set --all MY_VAR
 ```
 
 
-## Creating New Environments
 
-For Spore, Environments are more like namespaces for the individual environment variables (called cells) rather than objects themselves. As a result, to create one, you just need to set an environment variable in the environment you 
-want, and it will spring into existence:
+## Running An App
+
+The most important thing after setting up your environment variables is running your app so that Spore can load
+the saved variables into the environment.
+
+### Using Rails
+
+Use the official [Rails gem](https://github.com/spore-sh/spore-rails) to automatically load your Spore
+environment variables while booting Rails.
+
+### Using Node.js
+
+Install the official [npm module](https://github.com/spore-sh/spore-node) with:
 
 ```
-$ spore set --environment new_environment MY_VAR
+$ npm install --save spore-node
 ```
+
+Then put the following line in your main javascript file, before any other code:
+
+```
+require('spore-node').loadEnvSync();
+```
+
+
+### Using Another Language or Framework
+
+The `spore-cli` has the `run` command, which allows you to run an arbitrary command line program with the Spore
+environment variables loaded. If I wanted to run the file `server.py`, I could use the following:
+
+```
+$ spore run py server.py
+```
+
+`run` takes the `--environment` flag to specify a particular environment to run the program in.
 
 
 ## Reading Environment Variables
@@ -135,6 +164,21 @@ $ spore get
 ```
 
 You can use the `--environment` and `--all` flags just like [`spore set`](#setting-environment-variables).
+
+
+
+
+## Creating New Environments
+
+For Spore, Environments are more like namespaces for the individual environment variables (called cells) rather than objects themselves. As a result, to create one, you just need to set an environment variable in the environment you 
+want, and it will spring into existence:
+
+```
+$ spore set --environment new_environment MY_VAR
+```
+
+See [Setting Environment Variables](#setting-environment-variables) for more information.
+
 
 
 
@@ -165,7 +209,14 @@ is the one environment variable that you do need to set manually on your server.
 If you use Heroku, you can automate this process by using the [Heroku Migration script](#for-heroku-users).
 
 
-## Granting Permissions
+
+## Permissions
+
+Spore is made for groups of developers to work on an app together, without exposing app secrets to everyone.
+Who can *see* what is managed with permissions, but anyone on your team can *write* variables. But since Spore
+is managed using [version control](#version-control), you can make sure nothing nasty ever makes it to production.
+
+### Granting Permissions
 
 If you're working in a team, you'll want to grant some permissions to your team members to be able to collaborate
 on your app. To do so, use the following command:
@@ -192,7 +243,7 @@ begin collaborating with you.
 
 
 
-## Revoking Permissions
+### Revoking Permissions
 
 A fact of life when working on development projects is churn. Fortunately with Spore, removing someone from a
 project is as easy as revoking their permissions:

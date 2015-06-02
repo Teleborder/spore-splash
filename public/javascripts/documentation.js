@@ -28,11 +28,11 @@ domready(function () {
       'creatingASpore',
       'migratingToSpore',
       'settingEnvironmentVariables',
-      'creatingNewEnvironments',
+      'runningAnApp',
       'readingEnvironmentVariables',
+      'creatingNewEnvironments',
       'creatingDeployments',
-      'grantingPermissions',
-      'revokingPermissions',
+      'permissions',
       'versionControl'
     ];
     sections.forEach(function (section) {
