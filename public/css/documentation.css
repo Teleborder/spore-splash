@@ -2,6 +2,10 @@
   padding-top: 2em;
 }
 
+.documentation-body h3 {
+  margin-top: 1.3em;
+}
+
 @media (min-width: 992px) {
   .documentation-nav {
     position: fixed;
