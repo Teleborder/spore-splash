@@ -20,20 +20,29 @@ domready(function () {
         }
       };
 
-  window.addEventListener('scroll', visibleElements);
-  window.addEventListener('scroll', docNav);
-
-  documentationTemplate.on('collapse', function () {
-    documentation.collapsed = !documentation.collapsed;
-    documentationTemplate.update(documentation);
-  });
-
   // render to the page
   documentationDom.parentNode.replaceChild(documentationTemplate.render(documentation), documentationDom);
 
-  // initialize
-  visibleElements();
+  // initialize moving nav menu
+  window.addEventListener('scroll', docNav);
   docNav();
+
+  // initialize nav anchors
+  visibleElements([
+    'installation',
+    'creatingASpore',
+    'migratingToSpore',
+    'copyingEnvironments',
+    'settingEnvironmentVariables',
+    'runningAnApp',
+    'readingEnvironmentVariables',
+    'creatingNewEnvironments',
+    'creatingDeployments',
+    'permissions',
+    'versionControl',
+    'security',
+    'otherIssues'
+  ], documentation, documentationTemplate, 0.2);
 
 
   function docNav() {
@@ -44,53 +53,6 @@ domready(function () {
     // plus the padding on the bottom to not make it pop
     var navOffset = scrollY() + 93 + nav.clientHeight;
     documentation.docNavAbsolute = navOffset > (posY(documentationDom) + documentationDom.clientHeight);
-    documentationTemplate.update(documentation);
-  }
-
-
-  function visibleElements() {
-    var sections = [
-      'installation',
-      'creatingASpore',
-      'migratingToSpore',
-      'copyingEnvironments',
-      'settingEnvironmentVariables',
-      'runningAnApp',
-      'readingEnvironmentVariables',
-      'creatingNewEnvironments',
-      'creatingDeployments',
-      'permissions',
-      'versionControl',
-      'security',
-      'otherIssues'
-    ];
-    sections.forEach(function (section) {
-      var id = section,
-          el;
-
-      while(id.match(/(.[A-Z])/)) {
-        id = id.replace(/(.[A-Z])/g, function (g) {
-          return g[0].toLowerCase() + '-' + g[1].toLowerCase();
-        });
-      }
-
-      el = document.getElementById(id);
-      documentation[section] = el && checkvisible(el, 0.2);
-
-      documentation[section + 'Active'] = function () {
-        return this[section] ? 'active' : '';
-      };
-
-      // set all other sections to false if this one is highlighted
-      if(documentation[section]) {
-        sections.forEach(function (s) {
-          if(section !== s) {
-            documentation[s] = false;
-          }
-        });
-      }
-    });
-
     documentationTemplate.update(documentation);
   }
 });
