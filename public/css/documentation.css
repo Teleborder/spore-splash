@@ -1,3 +1,7 @@
+#documentation {
+  position: relative;
+}
+
 .documentation-body h2 {
   padding-top: 2em;
 }
@@ -7,7 +11,13 @@
 }
 
 @media (min-width: 992px) {
-  .documentation-nav {
+  #documentation-nav {
     position: fixed;
+    top: 70px;
+  }
+  #documentation-nav.absolute {
+    position: absolute;
+    top: auto;
+    bottom: 0;
   }
 }

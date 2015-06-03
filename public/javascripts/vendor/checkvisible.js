@@ -1,5 +1,5 @@
 (function (window) {
-  function posY(elm) {
+  window.posY = function posY(elm) {
       var test = elm, top = 0;
 
       while(!!test && test.tagName.toLowerCase() !== "body") {
@@ -8,7 +8,7 @@
       }
 
       return top;
-  }
+  };
 
   function viewPortHeight() {
       var de = document.documentElement;
@@ -21,10 +21,10 @@
       return 0;
   }
 
-  function scrollY() {
+  window.scrollY = function scrollY() {
       if( window.pageYOffset ) { return window.pageYOffset; }
       return Math.max(document.documentElement.scrollTop, document.body.scrollTop);
-  }
+  };
 
   window.checkvisible = function checkvisible( elm, amt ) {
     amt = amt || 0.4;

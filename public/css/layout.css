@@ -140,6 +140,10 @@ footer .nav > li > a:focus {
   color: #baf2bb;
 }
 
+.static {
+  position: static;
+}
+
 pre {
   background-color: #042029;
   border-color: #042029;

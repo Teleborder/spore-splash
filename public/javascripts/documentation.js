@@ -1,14 +1,27 @@
 domready(function () {
   var documentationDom = document.getElementById('documentation'),
+      nav = document.getElementById('documentation-nav'),
       documentationTemplate = Oz(documentationDom),
       documentation = {
-        collapsed: true,
-        collapse: function () {
-          return this.collapsed ? 'documentationbar-collapse collapse' : 'documentationbar-collapse';
+        docNavAbsolute: false,
+        docNavClass: function () {
+          var c = nav.className || "";
+          c = c.split(" ");
+          if(this.docNavAbsolute) {
+            if(c.indexOf('absolute') === -1) {
+              c.push('absolute');
+            }
+          } else {
+            if(c.indexOf('absolute') !== -1) {
+              c.splice(c.indexOf('absolute'), 1);
+            }
+          }
+          return c.join(" ");
         }
       };
 
   window.addEventListener('scroll', visibleElements);
+  window.addEventListener('scroll', docNav);
 
   documentationTemplate.on('collapse', function () {
     documentation.collapsed = !documentation.collapsed;
@@ -18,8 +31,21 @@ domready(function () {
   // render to the page
   documentationDom.parentNode.replaceChild(documentationTemplate.render(documentation), documentationDom);
 
-  // initialize menu sections
+  // initialize
   visibleElements();
+  docNav();
+
+
+  function docNav() {
+    nav = document.getElementById('documentation-nav');
+    documentationDom = document.getElementById('documentation');
+
+    // 60 is the fixed top of documentation-nav, defined in documentation.css
+    // plus the padding on the bottom to not make it pop
+    var navOffset = scrollY() + 93 + nav.clientHeight;
+    documentation.docNavAbsolute = navOffset > (posY(documentationDom) + documentationDom.clientHeight);
+    documentationTemplate.update(documentation);
+  }
 
 
   function visibleElements() {
