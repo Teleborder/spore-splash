@@ -10,9 +10,11 @@ app.set('views', './views');
 app.set('view engine', 'jade');
 
 app.get('/', function (req, res, next) {
-  res.render('index', {
-    index: true,
-    version: version.version
+  version(function (_err, version) {
+    res.render('index', {
+      index: true,
+      version: version
+    });
   });
 });
 
