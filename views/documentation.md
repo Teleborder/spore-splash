@@ -76,6 +76,22 @@ We'd like to add more migration scripts, particularly for popular configuration 
 Figaro and Dotenv. To add one, open a pull request to [spore-cli](https://github.com/spore-sh/spore-cli-node).
 
 
+## Copying Environments
+
+If you just migrated one of your environments to Spore, you're likely going to want to make sure all of that
+environment's keys are set in all of your other environments. To do so, use the `spore copy` command:
+
+```
+$ spore copy --prompt production
+```
+
+That will copy the `production` environment values into your default environment (likely `development`), prompting
+you to fill in a value for each key. You can copy all the values by omitting the `--prompt` flag. You can also specify
+the target environment with the `-e`, or `--environment flag:
+
+```
+$ spore copy -p -e staging production
+```
 
 
 ## Setting Environment Variables
@@ -92,7 +108,7 @@ in order to avoid sensitive data from appearing in shell history.
 You may have noticed that the command above only set `MY_VAR` in your default environment (which is probably `development`). To set it in a different environment, use the `-e`, or `--environment` flag:
 
 ```
-$ spore set --envirnoment staging MY_VAR
+$ spore set --environment staging MY_VAR
 ```
 
 To be prompted for a value for each of your existing environments, use the `-p`, or `--prompt` option:

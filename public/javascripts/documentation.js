@@ -27,6 +27,7 @@ domready(function () {
       'installation',
       'creatingASpore',
       'migratingToSpore',
+      'copyingEnvironments',
       'settingEnvironmentVariables',
       'runningAnApp',
       'readingEnvironmentVariables',
