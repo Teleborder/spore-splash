@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Teleborder/spore-splash.git"
+    "url": "git+https://github.com/spore-sh/spore-splash.git"
   },
   "keywords": [
     "spore",
@@ -17,9 +17,9 @@
   "author": "Trey Griffith <trey@tgriff3.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Teleborder/spore-splash/issues"
+    "url": "https://github.com/spore-sh/spore-splash/issues"
   },
-  "homepage": "https://github.com/Teleborder/spore-splash#readme",
+  "homepage": "https://github.com/spore-sh/spore-splash#readme",
   "dependencies": {
     "express": "^4.12.4",
     "jade": "^1.10.0",
