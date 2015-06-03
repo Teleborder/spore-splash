@@ -1,7 +1,8 @@
 var express = require('express'),
     app = express(),
     path = require('path'),
-    documentation = require('./documentation');
+    documentation = require('./documentation'),
+    version = require('./version');
 
 app.use(express.static(path.resolve(__dirname, 'public')));
 
@@ -9,7 +10,10 @@ app.set('views', './views');
 app.set('view engine', 'jade');
 
 app.get('/', function (req, res, next) {
-  res.render('index', { index: true });
+  res.render('index', {
+    index: true,
+    version: version.version
+  });
 });
 
 app.get('/documentation', function (req, res, next) {

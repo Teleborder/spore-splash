@@ -23,6 +23,7 @@
   "dependencies": {
     "express": "^4.12.4",
     "jade": "^1.10.0",
-    "marked": "^0.3.3"
+    "marked": "^0.3.3",
+    "request": "^2.57.0"
   }
 }
